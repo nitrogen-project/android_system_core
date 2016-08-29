@@ -845,6 +845,6 @@ on property:ro.debuggable=1
     chmod 0775 /data/misc/wmtrace
     start console
 
-service flash_recovery /system/bin/install-recovery.sh
-    class main
-    oneshot
+#service flash_recovery /system/bin/install-recovery.sh
+#    class main
+#    oneshot
