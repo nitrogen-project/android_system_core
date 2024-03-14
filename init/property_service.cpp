@@ -893,7 +893,13 @@ static const char *snet_prop_key[] = {
     "ro.odm.build.type",
     "ro.build.keys",
     "ro.build.tags",
+    "ro.bootimage.build.tags",
+    "ro.odm.build.tags",
+    "ro.product.build.tags",
     "ro.system.build.tags",
+    "ro.system_ext.build.tags",
+    "ro.vendor.build.tags",
+    "ro.vendor_dlkm.build.tags",
     "ro.vendor.boot.warranty_bit",
     "ro.vendor.warranty_bit",
     "vendor.boot.vbmeta.device_state",
@@ -922,7 +928,13 @@ static const char *snet_prop_value[] = {
     "user", // ro.odm.build.type
     "release-keys", // ro.build.keys
     "release-keys", // ro.build.tags
+    "release-keys", // ro.bootimage.build.tags
+    "release-keys", // ro.odm.build.tags
+    "release-keys", // ro.product.build.tags
     "release-keys", // ro.system.build.tags
+    "release-keys", // ro.system_ext.build.tags
+    "release-keys", // ro.vendor.build.tags
+    "release-keys", // ro.vendor_dlkm.build.tags
     "0", // ro.vendor.boot.warranty_bit
     "0", // ro.vendor.warranty_bit
     "locked", // vendor.boot.vbmeta.device_state
