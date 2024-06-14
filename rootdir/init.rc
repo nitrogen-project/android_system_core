@@ -1295,6 +1295,40 @@ service console /system/bin/sh
     setenv HOSTNAME console
     shutdown critical
 
+# Logcat Services
+service boot_log /system/bin/logcat -b all -D -f /metadata/boot_log_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_crash /system/bin/logcat -b crash -D -f /metadata/boot_log_crash.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_kernel /system/bin/logcat -b kernel -D -f /metadata/boot_log_kernel.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on post-fs-data
+# Clear existing log and start the service
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
+on property:sys.boot_completed=1
+# Stop the logger service
+    stop boot_log
+    stop boot_log_crash
+    stop boot_log_kernel
+
 on property:ro.debuggable=1
     # Give writes to the same group for the trace folder on debug builds,
     # it's further protected by selinux policy.
